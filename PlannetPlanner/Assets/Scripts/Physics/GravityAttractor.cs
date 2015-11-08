@@ -14,10 +14,14 @@ public class GravityAttractor : MonoBehaviour {
 
     public Vector2 Attract(Transform body) {
 		Vector2 gravityUp = (body.position - planet.position).normalized;
-        
-        
+      
+
         gravityUp = (gravityUp * gravity);
 
+
         return gravityUp;
+
     }
+
+  
 }
