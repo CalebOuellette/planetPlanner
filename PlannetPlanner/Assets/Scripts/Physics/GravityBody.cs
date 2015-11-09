@@ -9,8 +9,9 @@ public class GravityBody : MonoBehaviour {
 
     public Vector2 startPosition;
     public bool addRotation = true;
-    Vector2 addForce = new Vector2(0, 0);
+    Vector2 targetAddForce = new Vector2(0, 0);
     Quaternion targetRotation = new Quaternion(0,0,0,0);
+
 
     void Awake()
     {
@@ -26,25 +27,30 @@ public class GravityBody : MonoBehaviour {
     void FixedUpdate()
     {
 
-        addForce = Vector2.zero;
+		targetAddForce = Vector2.zero;
         
         foreach (GravityAttractor p in planet) //For each planet/Attractor apply attractor force to ship.
         {
-            addForce = addForce + p.Attract(body);
+			targetAddForce = targetAddForce + p.Attract(body);
         }
 
-        body.GetComponent<Rigidbody2D>().AddForce(addForce);
 
-        if (addRotation == true)
+		//Add Boost funtion takes the existing vector and adds magnat to increase the velocity.
+
+
+
+
+		body.GetComponent<Rigidbody2D>().AddForce(targetAddForce);
+
+
+
+        if (addRotation == true) //Adds Rotation to the object if needed. Used for spaceship!
         {
-            Vector2 localUp = body.up;
-            Quaternion targetRotation = Quaternion.FromToRotation(localUp, addForce) * body.rotation;
-            body.rotation = Quaternion.Slerp(body.rotation, targetRotation, 50f * Time.deltaTime);
+            Vector2 localUp = body.right;
+			Quaternion targetRotation = Quaternion.FromToRotation(localUp, targetAddForce) * body.rotation;
+			body.rotation = Quaternion.Slerp(body.rotation, targetRotation, 50f * Time.deltaTime );
 
         }
-
-      
-
 
 
     }
