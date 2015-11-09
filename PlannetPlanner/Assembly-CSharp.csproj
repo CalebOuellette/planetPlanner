@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\Physics\GravityAttractor.cs" />
      <Compile Include="Assets\Scripts\Physics\GravityBody.cs" />
      <Compile Include="Assets\Scripts\Physics\addForceByTime.cs" />
+     <Compile Include="Assets\Scripts\Physics\boost.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>E:/Programs/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
