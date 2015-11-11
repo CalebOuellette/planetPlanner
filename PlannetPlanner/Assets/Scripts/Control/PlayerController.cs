@@ -6,11 +6,12 @@ public class PlayerController : MonoBehaviour {
 
     public int thrust = 10;
     private Rigidbody2D rb;
-    
+    private Transform body;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        body = GetComponent<Transform>();
     }
 
 
@@ -39,6 +40,15 @@ public class PlayerController : MonoBehaviour {
 
         }
 
+        if (Input.GetKey(KeyCode.B))
+        {            
+            rb.AddForce(body.right * thrust);
+            Debug.Log("Boost");
+
+        }
+
+
+        
 
 
         if (Input.GetKey(KeyCode.Space))
