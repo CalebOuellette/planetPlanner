@@ -4,8 +4,9 @@ using System.Collections;
 public class GravityAttractor : MonoBehaviour {
 
 	public float gravity = -12;
-	public float triggerDistance = 10;	
-    
+	public float triggerDistance = 10;
+    public float triggerDistanceBuffer = 3;
+
 	private Transform planet;
 
    public void Awake ()
@@ -36,8 +37,19 @@ public class GravityAttractor : MonoBehaviour {
         //Debug.Log(gravityUp.magnitude); 
 		if (gravityUp.magnitude < triggerDistance || triggerDistance == -1) { //if the magnitude(distance) is less then trigger Distance, Apply gravity
 
+            float scale = 1;
 
-			gravityUp = (gravityUp.normalized * gravity);
+            if (gravityUp.magnitude > (triggerDistance - triggerDistanceBuffer)) //if buffer is set ship force will be multipled by a scaling number to gradually add force as the ship approatches the planet
+            {
+                float triggerbufferwork = triggerDistance - triggerDistanceBuffer;
+                float gravitybuffer = gravityUp.magnitude - triggerbufferwork;
+                //Debug.Log("gravitybuffer" + gravitybuffer);
+                scale =  gravitybuffer/ triggerDistanceBuffer;
+                //Debug.Log("scale" + scale);
+            }
+            
+
+            gravityUp = (gravityUp.normalized * gravity * scale);
 			return gravityUp;
 		} else { //Else return a 0 vector. Equal to no force added.
 			Vector2 x = new Vector2(0,0);
