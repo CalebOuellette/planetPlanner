@@ -12,7 +12,7 @@ public class destoryOnContact : MonoBehaviour
           
 
             rb.isKinematic = true; //stop applying gravity
-            rb.position = col.gameObject.GetComponent<GravityBody>().startPosition;
+			col.gameObject.GetComponent<GravityBody>().resetToStart();
            
         }
     }

@@ -65,12 +65,13 @@ public class PlayerController : MonoBehaviour {
 
 }
 
+
+
+
     public void resetship(Rigidbody2D rb)
     {
-
-
         rb.isKinematic = true; //stop applying gravity
-        rb.position = GetComponent<GravityBody>().startPosition; //move back to start postion
+		GetComponent<baseObject>().resetToStart(); //move back to start postion
     }
 
 }

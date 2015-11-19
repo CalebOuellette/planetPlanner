@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class baseMoveableObject : MonoBehaviour {
+public class baseObject : MonoBehaviour {
 
 	//requires 2D rigid body
 
@@ -11,7 +11,7 @@ public class baseMoveableObject : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		startPosition = GetComponent<Rigidbody2D>().position;
+		startPosition = GetComponent<Transform>().position;
 	}
 	
 	// Update is called once per frame
@@ -21,19 +21,23 @@ public class baseMoveableObject : MonoBehaviour {
 	
 	// Set postion to reset back to.
 	public void setPlayerMovedStartPosition (){
-		playerMovedStartPosition = GetComponent<Rigidbody2D>().position;
+		playerMovedStartPosition = GetComponent<Transform>().position;
 	}
 
 	//Reset object to level start postion
 	public void resetToStart(){
-		Rigidbody2D rb = GetComponent<Rigidbody2D>();
+		Transform rb = GetComponent<Transform>();
 		rb.position = startPosition; 
 	}
 
 	//Reset object to player moved start postion
 	public void resetToPMstartPosition (){
-		Rigidbody2D rb = GetComponent<Rigidbody2D>();
+		Transform rb = GetComponent<Transform>();
 		rb.position = playerMovedStartPosition; 
 	}
+
+
+
+
 
 }

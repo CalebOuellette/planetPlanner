@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GravityAttractor : MonoBehaviour {
+public class GravityAttractor : baseObject {
 
 	public float gravity = -12;
 	public float triggerDistance = 10;
