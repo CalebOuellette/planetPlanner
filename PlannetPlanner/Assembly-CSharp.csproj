@@ -48,10 +48,11 @@
      <Compile Include="Assets\Scripts\Control\ClickAndDrag.cs" />
      <Compile Include="Assets\Scripts\Control\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Control\addForceByTime.cs" />
-     <Compile Include="Assets\Scripts\Physics\Destroy\destoryOnContact.cs" />
      <Compile Include="Assets\Scripts\Physics\GravityAttractor.cs" />
      <Compile Include="Assets\Scripts\Physics\GravityBody.cs" />
-     <Compile Include="Assets\Scripts\Physics\Objects\baseMoveableObject.cs" />
+     <Compile Include="Assets\Scripts\Physics\objects\baseMoveableObject.cs" />
+     <Compile Include="Assets\Scripts\Physics\onContact\destoryOnContact.cs" />
+     <Compile Include="Assets\Scripts\Physics\onContact\levelCompleteOnContact.cs" />
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
