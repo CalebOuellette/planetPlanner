@@ -5,8 +5,9 @@ public class baseMoveableObject : MonoBehaviour {
 
 	//requires 2D rigid body?
 
-	private Vector2 startPosition;
-	private Rigidbody2D rb;
+	public Vector2 startPosition;
+	public Quaternion startRotation;
+	public Rigidbody2D rb;
 
 
 	private baseMoveableObject[] allMObjects;
@@ -14,6 +15,7 @@ public class baseMoveableObject : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		startPosition = GetComponent<Transform>().position;
+		startRotation = GetComponent<Transform>().rotation;
 
 	}
 	
@@ -25,6 +27,7 @@ public class baseMoveableObject : MonoBehaviour {
 	// Set postion to reset back to.
 	public void startLevel(){
 		startPosition = GetComponent<Transform>().position;
+		startRotation = GetComponent<Transform>().rotation;
 		rb = GetComponent<Rigidbody2D>();
 		rb.isKinematic = false;
 	}
@@ -35,7 +38,8 @@ public class baseMoveableObject : MonoBehaviour {
 		Transform Tr = GetComponent<Transform>();
 
 		rb.isKinematic = true;
-		Tr.position = startPosition; 
+		Tr.position = startPosition;
+		Tr.rotation = startRotation;
 
 
 	}

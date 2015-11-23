@@ -5,7 +5,7 @@ public class spaceship : GravityBody {
 
 	private Transform body;
 	public int thrust = 10;
-	private Rigidbody2D rb;
+
 
 
 
@@ -13,7 +13,7 @@ public class spaceship : GravityBody {
 
 	// Use this for initialization
 	void Start () {
-		rb = GetComponent<Rigidbody2D>();
+
 		body = GetComponent<Transform>();
 
 	}
@@ -26,12 +26,12 @@ public class spaceship : GravityBody {
 
 	public void addFowardForce(){
 
-		rb.AddForce(body.right * thrust);
+		this.rb.AddForce(body.right * thrust);
 	}
 
 	
 	public void AddFowardForce(float InputThrust){
-		rb.AddForce(body.right * InputThrust);
+		this.rb.AddForce(body.right * InputThrust);
 	}
 
 
