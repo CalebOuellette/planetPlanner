@@ -7,9 +7,10 @@ public class addForceByTime : MonoBehaviour {
 
 	public int timeMax = 60; 
 	public bool[] isBoost = new bool[60];
-
+	private spaceship s;
 	public float timer = 0;
 	public bool started = false;
+
 
 
 	public void timerStart(){
@@ -37,12 +38,23 @@ public class addForceByTime : MonoBehaviour {
 
 
 
+
+	void Start(){
+		s = GetComponent<spaceship>();
+	
+	}
+
 	void FixedUpdate(){
 		if (timer < timeMax && started) {
 			timer += Time.deltaTime;
 
-			bool boost = this.boostOn();
-			Debug.Log (boost);
+
+			if( this.boostOn() == true){
+				Debug.Log (s);
+				s.addFowardForce();
+
+			}
+
 		}
 	}
 

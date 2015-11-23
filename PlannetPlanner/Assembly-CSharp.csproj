@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\Physics\GravityAttractor.cs" />
      <Compile Include="Assets\Scripts\Physics\GravityBody.cs" />
      <Compile Include="Assets\Scripts\Physics\objects\baseMoveableObject.cs" />
+     <Compile Include="Assets\Scripts\Physics\objects\spaceship.cs" />
      <Compile Include="Assets\Scripts\Physics\onContact\destoryOnContact.cs" />
      <Compile Include="Assets\Scripts\Physics\onContact\levelCompleteOnContact.cs" />
  <Reference Include="UnityEngine.Networking">

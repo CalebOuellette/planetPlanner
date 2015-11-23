@@ -3,15 +3,15 @@ using System.Collections;
 
 public class baseObject : MonoBehaviour {
 
-	//requires 2D rigid body
+	//requires 2D rigid body?
 
 	private Vector2 startPosition;
-	private Vector2 playerMovedStartPosition;
-
+	private Rigidbody2D rb;
 
 	// Use this for initialization
 	void Start () {
 		startPosition = GetComponent<Transform>().position;
+
 	}
 	
 	// Update is called once per frame
@@ -20,20 +20,20 @@ public class baseObject : MonoBehaviour {
 	}
 	
 	// Set postion to reset back to.
-	public void setPlayerMovedStartPosition (){
-		playerMovedStartPosition = GetComponent<Transform>().position;
+	public void startLevel(){
+		startPosition = GetComponent<Transform>().position;
+		rb = GetComponent<Rigidbody2D>();
+		rb.isKinematic = false;
 	}
 
-	//Reset object to level start postion
-	public void resetToStart(){
-		Transform rb = GetComponent<Transform>();
-		rb.position = startPosition; 
-	}
 
 	//Reset object to player moved start postion
-	public void resetToPMstartPosition (){
-		Transform rb = GetComponent<Transform>();
-		rb.position = playerMovedStartPosition; 
+	public void resetToStart (){
+		Transform Tr = GetComponent<Transform>();
+		rb.isKinematic = true;
+		Tr.position = startPosition; 
+
+
 	}
 
 
