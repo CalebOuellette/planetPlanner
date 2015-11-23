@@ -10,10 +10,12 @@ public class spaceship : GravityBody {
 
 
 
+
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
 		body = GetComponent<Transform>();
+
 	}
 	
 	// Update is called once per frame
@@ -28,9 +30,9 @@ public class spaceship : GravityBody {
 	}
 
 	
-//	public void AddFowardForce(float InputThrust){
-//		rb.AddForce(body.right * InputThrust);
-//	}
+	public void AddFowardForce(float InputThrust){
+		rb.AddForce(body.right * InputThrust);
+	}
 
 
 

@@ -55,14 +55,15 @@ public class PlayerController : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.Space))
         {
-			s.startLevel();
+			baseMoveableObject.startLevelAll();
+			//s.startLevel();
 			afbt.timerStart();
 
         }
 
         if (Input.GetKey(KeyCode.R))
         {
-			s.resetToStart();
+			baseMoveableObject.resetAll();
 			afbt.reset();
         }
 

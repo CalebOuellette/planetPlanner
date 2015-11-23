@@ -8,9 +8,9 @@ public class destoryOnContact : MonoBehaviour
         Debug.Log("collision");
         if (col.gameObject.name == "spaceship")
         {
-            spaceship s = col.gameObject.GetComponent<spaceship>();
+            
           
-			s.resetToStart();
+			baseMoveableObject.resetAll();
         }
     }
 }

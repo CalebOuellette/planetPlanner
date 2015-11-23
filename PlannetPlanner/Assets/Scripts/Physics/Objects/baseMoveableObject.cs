@@ -1,12 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class baseObject : MonoBehaviour {
+public class baseMoveableObject : MonoBehaviour {
 
 	//requires 2D rigid body?
 
 	private Vector2 startPosition;
 	private Rigidbody2D rb;
+
+
+	private baseMoveableObject[] allMObjects;
 
 	// Use this for initialization
 	void Start () {
@@ -30,10 +33,41 @@ public class baseObject : MonoBehaviour {
 	//Reset object to player moved start postion
 	public void resetToStart (){
 		Transform Tr = GetComponent<Transform>();
+
 		rb.isKinematic = true;
 		Tr.position = startPosition; 
 
 
+	}
+
+
+
+
+
+	public static void resetAll(){
+		baseMoveableObject[] allMObjects;
+		allMObjects = FindObjectsOfType(typeof(baseMoveableObject)) as baseMoveableObject[];
+
+		
+		foreach (baseMoveableObject o in allMObjects) //For each planet/Attractor apply attractor force to ship.
+		{
+			o.resetToStart();
+		}
+
+	}
+
+	
+	
+	public static void startLevelAll(){
+		baseMoveableObject[] allMObjects;
+		allMObjects = FindObjectsOfType(typeof(baseMoveableObject)) as baseMoveableObject[];
+		
+		
+		foreach (baseMoveableObject o in allMObjects) //For each planet/Attractor apply attractor force to ship.
+		{
+			o.startLevel();
+		}
+		
 	}
 
 

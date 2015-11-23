@@ -4,7 +4,7 @@ using System.Collections;
 
 public class addForceByTime : MonoBehaviour {
 
-
+	public float timeScaleFraction = 1;
 	public int timeMax = 60; 
 	public bool[] isBoost = new bool[60];
 	private spaceship s;
@@ -28,8 +28,7 @@ public class addForceByTime : MonoBehaviour {
 
 	public bool boostOn(){
 		bool boostBool;
-		int roundedA = (int) timer;
-		//float roundedA = Math.Round(timer, 0); 
+		int roundedA = (int) (timer * timeScaleFraction);
 		boostBool = isBoost [roundedA];
 
 
@@ -45,12 +44,11 @@ public class addForceByTime : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
-		if (timer < timeMax && started) {
+		if (timer < timeMax && started) { //if timer is started and less than max time
 			timer += Time.deltaTime;
 
 
-			if( this.boostOn() == true){
-				Debug.Log (s);
+			if( this.boostOn() == true){ //if array at point in time is true
 				s.addFowardForce();
 
 			}
