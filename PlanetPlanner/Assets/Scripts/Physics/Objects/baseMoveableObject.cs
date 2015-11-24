@@ -1,17 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class baseObject : MonoBehaviour {
+public class baseMoveableObject : MonoBehaviour {
 
-	//requires 2D rigid body
+	//requires 2D rigid body?
 
-	private Vector2 startPosition;
-	private Vector2 playerMovedStartPosition;
+	public Vector2 startPosition;
+	public Quaternion startRotation;
+	public Rigidbody2D rb;
 
+
+	private baseMoveableObject[] allMObjects;
 
 	// Use this for initialization
 	void Start () {
 		startPosition = GetComponent<Transform>().position;
+		startRotation = GetComponent<Transform>().rotation;
+
 	}
 	
 	// Update is called once per frame
@@ -20,20 +25,53 @@ public class baseObject : MonoBehaviour {
 	}
 	
 	// Set postion to reset back to.
-	public void setPlayerMovedStartPosition (){
-		playerMovedStartPosition = GetComponent<Transform>().position;
+	public void startLevel(){
+		startPosition = GetComponent<Transform>().position;
+		startRotation = GetComponent<Transform>().rotation;
+		rb = GetComponent<Rigidbody2D>();
+		rb.isKinematic = false;
 	}
 
-	//Reset object to level start postion
-	public void resetToStart(){
-		Transform rb = GetComponent<Transform>();
-		rb.position = startPosition; 
-	}
 
 	//Reset object to player moved start postion
-	public void resetToPMstartPosition (){
-		Transform rb = GetComponent<Transform>();
-		rb.position = playerMovedStartPosition; 
+	public void resetToStart (){
+		Transform Tr = GetComponent<Transform>();
+
+		rb.isKinematic = true;
+		Tr.position = startPosition;
+		Tr.rotation = startRotation;
+
+
+	}
+
+
+
+
+
+	public static void resetAll(){
+		baseMoveableObject[] allMObjects;
+		allMObjects = FindObjectsOfType(typeof(baseMoveableObject)) as baseMoveableObject[];
+
+		
+		foreach (baseMoveableObject o in allMObjects) //For each planet/Attractor apply attractor force to ship.
+		{
+			o.resetToStart();
+		}
+
+	}
+
+	
+	
+	public static void startLevelAll(){
+		baseMoveableObject[] allMObjects;
+		allMObjects = FindObjectsOfType(typeof(baseMoveableObject)) as baseMoveableObject[];
+		
+		
+		foreach (baseMoveableObject o in allMObjects) //For each planet/Attractor apply attractor force to ship.
+		{
+			o.startLevel();
+		}
+		
 	}
 
 

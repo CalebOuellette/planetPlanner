@@ -2,7 +2,7 @@
 using System.Collections;
 
 
-public class GravityBody : baseObject {
+public class GravityBody : baseMoveableObject {
 
     private GravityAttractor[] planet;
     private Transform body;

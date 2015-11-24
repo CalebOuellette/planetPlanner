@@ -7,11 +7,16 @@ public class PlayerController : MonoBehaviour {
     public int thrust = 10;
     private Rigidbody2D rb;
     private Transform body;
+	private spaceship s;
+	private addForceByTime afbt;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         body = GetComponent<Transform>();
+		s = GetComponent<spaceship> ();
+		afbt = GetComponent<addForceByTime> ();
+
     }
 
 
@@ -48,30 +53,20 @@ public class PlayerController : MonoBehaviour {
         }
 
 
-        
-
-
         if (Input.GetKey(KeyCode.Space))
         {
-            rb.isKinematic = false;
+			baseMoveableObject.startLevelAll();
+			afbt.timerStart();
+
         }
 
         if (Input.GetKey(KeyCode.R))
         {
-            resetship(rb);
-
+			baseMoveableObject.resetAll();
+			afbt.reset();
         }
 
 
 }
-
-
-
-
-    public void resetship(Rigidbody2D rb)
-    {
-        rb.isKinematic = true; //stop applying gravity
-		GetComponent<baseObject>().resetToStart(); //move back to start postion
-    }
 
 }
