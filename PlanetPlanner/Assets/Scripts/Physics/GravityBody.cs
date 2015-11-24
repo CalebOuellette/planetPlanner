@@ -10,7 +10,6 @@ public class GravityBody : baseMoveableObject {
 
     public bool addRotation = true;
     Vector2 targetAddForce = new Vector2(0, 0);
-    Quaternion targetRotation = new Quaternion(0,0,0,0);
 
 
     void Awake()

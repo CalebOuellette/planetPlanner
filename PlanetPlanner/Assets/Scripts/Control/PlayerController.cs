@@ -7,14 +7,12 @@ public class PlayerController : MonoBehaviour {
     public int thrust = 10;
     private Rigidbody2D rb;
     private Transform body;
-	private spaceship s;
 	private addForceByTime afbt;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         body = GetComponent<Transform>();
-		s = GetComponent<spaceship> ();
 		afbt = GetComponent<addForceByTime> ();
 
     }

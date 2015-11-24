@@ -1,0 +1,14 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Physics/GravityBody.cs">
+    <Files>
+      <File FileName="Assets/Scripts/Control/addForceByTime.cs" Line="10" Column="1" />
+      <File FileName="Assets/Scripts/Physics/GravityAttractor.cs" Line="19" Column="70" />
+      <File FileName="Assets/Scripts/Physics/GravityBody.cs" Line="12" Column="48" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

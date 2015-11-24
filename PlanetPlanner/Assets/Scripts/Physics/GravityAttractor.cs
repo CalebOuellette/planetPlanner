@@ -17,7 +17,6 @@ public class GravityAttractor : baseMoveableObject {
             GameObject line = Instantiate(Resources.Load("Line", typeof(GameObject)), planet.position, planet.rotation) as GameObject;
 
             Vector3 size = line.GetComponent<Renderer>().bounds.size;
-            Debug.Log(size.y);
 
             float scale = ((triggerDistance * 2) / size.y / planet.transform.localScale.x) ; //Divid by parent scale to get realworld scale.
        
