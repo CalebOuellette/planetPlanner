@@ -4,19 +4,38 @@ using System.Collections;
 public class spaceship : GravityBody {
 
 	private Transform body;
+  
+
 	public int thrust = 10;
 
+    //GetSprite
+    public string ShipSpritePath = "Graphics/spaceShipSprites/spaceship";
+
+    [HideInInspector] // Hides var below
+    public Sprite Shipsprite;
+    [HideInInspector] // Hides var below
+    public Sprite ShipBoostsprite;
+
+    private SpriteRenderer SR;
+    
 
 
 
+    // Use this for initialization
+    void Start () {
+        //Get Config Values
+        Shipsprite = Resources.Load<Sprite>((ShipSpritePath));
+        ShipBoostsprite = Resources.Load<Sprite>((ShipSpritePath + "_boost"));
+
+        //Setup values
+        SR = GetComponent<SpriteRenderer>();
+        body = GetComponent<Transform>();
 
 
-	// Use this for initialization
-	void Start () {
+        //Apply Values
+        SR.sprite = Shipsprite;
 
-		body = GetComponent<Transform>();
-
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -26,13 +45,19 @@ public class spaceship : GravityBody {
 
 	public void addFowardForce(){
 
-		this.rb.AddForce(body.right * thrust);
-	}
+		this.rb.AddForce(body.right * thrust); //Added Force
+    }
 
 	
 	public void AddFowardForce(float InputThrust){
-		this.rb.AddForce(body.right * InputThrust);
+
+        this.rb.AddForce(body.right * InputThrust); //Added Force
 	}
+
+
+
+
+
 
 
 

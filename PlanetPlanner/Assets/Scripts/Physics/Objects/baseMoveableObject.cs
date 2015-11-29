@@ -52,8 +52,9 @@ public class baseMoveableObject : MonoBehaviour {
 		baseMoveableObject[] allMObjects;
 		allMObjects = FindObjectsOfType(typeof(baseMoveableObject)) as baseMoveableObject[];
 
-		
-		foreach (baseMoveableObject o in allMObjects) //For each planet/Attractor apply attractor force to ship.
+        GameObject.Find("gameBaseScripts").GetComponent<levelClock>().reset();  //Reset Global Timer
+        
+        foreach (baseMoveableObject o in allMObjects) //For each planet/Attractor apply attractor force to ship.
 		{
 			o.resetToStart();
 		}
@@ -65,9 +66,10 @@ public class baseMoveableObject : MonoBehaviour {
 	public static void startLevelAll(){
 		baseMoveableObject[] allMObjects;
 		allMObjects = FindObjectsOfType(typeof(baseMoveableObject)) as baseMoveableObject[];
-		
-		
-		foreach (baseMoveableObject o in allMObjects) //For each planet/Attractor apply attractor force to ship.
+
+        GameObject.Find("gameBaseScripts").GetComponent<levelClock>().timerStart(); //Start Global Timer
+
+        foreach (baseMoveableObject o in allMObjects) //For each planet/Attractor apply attractor force to ship.
 		{
 			o.startLevel();
 		}

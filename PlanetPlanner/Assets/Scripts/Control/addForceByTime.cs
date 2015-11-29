@@ -3,32 +3,19 @@ using System.Collections;
 
 
 public class addForceByTime : MonoBehaviour {
-
-	public float timeScaleFraction = 1;
-	public int timeMax = 60; 
+	
 	public bool[] isBoost = new bool[60];
 	private spaceship s;
-	public float timer = 0;
-	public bool started = false;
+    private levelClock levelClock;
+    private GameObject BaseGameObject;
+    private SpriteRenderer SR;
 
 
 
-	public void timerStart(){
-		timer = 0;
-		started = true;
-	}
 
-
-	public void reset(){
-		timer = 0;
-		started = false;
-	}
-
-
-
-	public bool boostOn(){
+    public bool boostOn(){
 		bool boostBool;
-		int roundedA = (int) (timer * timeScaleFraction);
+		int roundedA = (int) (levelClock.timer * levelClock.timeScaleFraction);
 		boostBool = isBoost [roundedA];
 
 
@@ -36,22 +23,27 @@ public class addForceByTime : MonoBehaviour {
 	}
 
 
-
-
 	void Start(){
 		s = GetComponent<spaceship>();
-	
-	}
+        levelClock = GameObject.Find("gameBaseScripts").GetComponent<levelClock>();
+        SR = GetComponent<SpriteRenderer>();
+      
+      
+    }
 
 	void FixedUpdate(){
-		if (timer < timeMax && started) { //if timer is started and less than max time
-			timer += Time.deltaTime;
+		if (levelClock.timer < levelClock.timeMax && levelClock.started) { //if timer is started and less than max time
+            levelClock.timer += Time.deltaTime;
 
 
 			if( this.boostOn() == true){ //if array at point in time is true
 				s.addFowardForce();
-
-			}
+                SR.sprite = s.ShipBoostsprite;
+            }
+            else
+            {
+                SR.sprite = s.Shipsprite;
+            }
 
 		}
 	}

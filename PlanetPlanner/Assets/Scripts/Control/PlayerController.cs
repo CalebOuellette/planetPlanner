@@ -7,13 +7,13 @@ public class PlayerController : MonoBehaviour {
     public int thrust = 10;
     private Rigidbody2D rb;
     private Transform body;
-	private addForceByTime afbt;
+	private levelClock levelClock;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         body = GetComponent<Transform>();
-		afbt = GetComponent<addForceByTime> ();
+        levelClock = GameObject.Find("gameBaseScripts").GetComponent<levelClock>(); 
 
     }
 
@@ -50,18 +50,19 @@ public class PlayerController : MonoBehaviour {
 
         }
 
-
-        if (Input.GetKey(KeyCode.Space))
+   
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-			baseMoveableObject.startLevelAll();
-			afbt.timerStart();
-
-        }
-
-        if (Input.GetKey(KeyCode.R))
-        {
-			baseMoveableObject.resetAll();
-			afbt.reset();
+            if (levelClock.started == false)
+            {
+                baseMoveableObject.startLevelAll();
+               
+            }
+            else
+            {
+                baseMoveableObject.resetAll();
+            
+            }
         }
 
 
