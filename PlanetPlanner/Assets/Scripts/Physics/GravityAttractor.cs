@@ -11,7 +11,7 @@ public class GravityAttractor : baseMoveableObject {
 
    public void Awake ()
     {
-        planet = GetComponent<Transform>();
+        planet = GetComponent<Transform>(); //Add trigger line
 		if (triggerDistance != -1) {
            
             GameObject line = Instantiate(Resources.Load("Line", typeof(GameObject)), planet.position, planet.rotation) as GameObject;
@@ -46,9 +46,8 @@ public class GravityAttractor : baseMoveableObject {
                 scale =  gravitybuffer/ triggerDistanceBuffer;
                 //Debug.Log("scale" + scale);
             }
-            
 
-            gravityUp = (gravityUp.normalized * gravity * scale);
+            gravityUp = (gravityUp.normalized * gravity * scale) / (gravityUp.magnitude * gravityUp.magnitude);
 			return gravityUp;
 		} else { //Else return a 0 vector. Equal to no force added.
 			Vector2 x = new Vector2(0,0);
