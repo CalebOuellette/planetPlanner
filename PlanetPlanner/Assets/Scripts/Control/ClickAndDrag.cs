@@ -3,10 +3,18 @@ using System.Collections;
 
 public class ClickAndDrag : MonoBehaviour
 {
+    private levelClock levelClock;
+
+    void Start()
+    {
+        levelClock = GameObject.Find("gameBaseScripts").GetComponent<levelClock>();
+    }
+
+
 
     void OnMouseDown()
     {
-       
+       if(levelClock.started == false)
             new Vector2(Input.mousePosition.x, Input.mousePosition.y);
 
     }
@@ -14,11 +22,13 @@ public class ClickAndDrag : MonoBehaviour
 
     void OnMouseDrag()
     {
-        Vector2 curScreenPoint = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        if (levelClock.started == false)
+        {
+            Vector2 curScreenPoint = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
 
 
-        Vector2 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint);
-        transform.position = curPosition;
-
+            Vector2 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint);
+            transform.position = curPosition;
+        }
     }
 }

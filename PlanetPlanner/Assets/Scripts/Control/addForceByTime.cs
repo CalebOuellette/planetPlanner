@@ -15,7 +15,7 @@ public class addForceByTime : MonoBehaviour {
 
     public bool boostOn(){
 		bool boostBool;
-		int roundedA = (int) (levelClock.timer * levelClock.timeScaleFraction);
+		int roundedA = (int) (levelClock.timer);
 		boostBool = isBoost [roundedA];
 
 

@@ -14,7 +14,7 @@ public class GravityAttractor : baseMoveableObject {
         planet = GetComponent<Transform>(); //Add trigger line
 		if (triggerDistance != -1) {
            
-            GameObject line = Instantiate(Resources.Load("Line", typeof(GameObject)), planet.position, planet.rotation) as GameObject;
+            GameObject line = Instantiate(Resources.Load("childresources/Line", typeof(GameObject)), planet.position, planet.rotation) as GameObject;
 
             Vector3 size = line.GetComponent<Renderer>().bounds.size;
 
