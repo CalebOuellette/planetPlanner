@@ -41,7 +41,7 @@ public class levelClock : MonoBehaviour {
             timer += Time.deltaTime * timeScaleFraction;
             if (timer > x)
             {
-                Debug.Log(x);
+                //Debug.Log(x);
                 x++;
             }
         }

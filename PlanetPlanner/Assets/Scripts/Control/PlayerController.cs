@@ -52,19 +52,30 @@ public class PlayerController : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (levelClock.started == false)
-            {
-                baseMoveableObject.startLevelAll();
-               
-            }
-            else
-            {
-                baseMoveableObject.resetAll();
-            
-            }
+			reset();
         }
 
 
 }
+
+
+	public void reset(){
+		if (levelClock.started == false)
+		{
+			baseMoveableObject.startLevelAll();
+			
+		}
+		else
+		{
+			baseMoveableObject.resetAll();
+			
+		}
+
+
+
+
+
+
+	}
 
 }
