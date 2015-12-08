@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class spawnBoostControl : MonoBehaviour {
@@ -28,9 +29,6 @@ public class spawnBoostControl : MonoBehaviour {
             buttonGameObject.transform.SetParent(this.transform);
             boostArrayButton bArrayButton = buttonGameObject.GetComponent<boostArrayButton>();
             bArrayButton.ButtonID = x;
-
-            
-
 
             //update POS
             RectTransform buttonlocation = buttonGameObject.GetComponent<RectTransform>();
