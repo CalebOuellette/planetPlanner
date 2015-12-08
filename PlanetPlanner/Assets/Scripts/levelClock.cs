@@ -4,9 +4,9 @@ using System.Collections;
 public class levelClock : MonoBehaviour {
 
     public float timeScaleFraction = 1;
-    public int timeMax = 60;
     public float timer = 0;
     public bool started = false;
+	public float timeMax = 100;
     private int trys = 0;
     float x= 0;
 

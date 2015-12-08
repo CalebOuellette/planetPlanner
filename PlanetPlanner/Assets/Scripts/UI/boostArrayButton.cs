@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class boostArrayButton : MonoBehaviour {
@@ -7,59 +8,64 @@ public class boostArrayButton : MonoBehaviour {
     private addForceByTime boostArray;
     private Rect buttonRect;
     private RectTransform buttonPosition;
+	private bool buttonOnOff;
+    
 
-    // Use this for initialization
-    //void Start () {
-    //    boostArray = FindObjectOfType(typeof(addForceByTime)) as addForceByTime;
-    //    buttonPosition = GetComponent<RectTransform>();
-
-    //    Vector2 x = new Vector2( buttonPosition.rect.width, buttonPosition.rect.height);
-    //    buttonRect = new Rect(buttonPosition.position , x);
-
-    //}
-
-    //void OnGUI(){
-
-
-    //    if (GUI.Button(buttonRect, ButtonID.ToString()))
-    //    {
-    //        if (boostArray.isBoost[ButtonID] == true)
-    //        {
-    //            GUI.color = Color.black;
-    //            boostArray.isBoost[ButtonID] = false;
-    //            Debug.Log("test" + boostArray.isBoost[ButtonID]);
-    //        }
-    //        else
-    //        {
-    //            GUI.color = Color.green;
-    //            boostArray.isBoost[ButtonID] = true;
-    //            Debug.Log("test" + boostArray.isBoost[ButtonID]);
-    //        }
-    //    }
-
-
-    //}
-
-    public void toggleArray(int item)
+    public void toggleArray()
     {
-        
-        
-
         addForceByTime boostArray = FindObjectOfType(typeof(addForceByTime)) as addForceByTime;
-        {
-            if (boostArray.isBoost[item] == true)
+        
+			if (boostArray.isBoost[ButtonID] == true)
             {
-                boostArray.isBoost[item] = false;
+				boostArray.isBoost[ButtonID] = false;
+
 
             }
             else
             {
-                boostArray.isBoost[item] = true;
+				boostArray.isBoost[ButtonID] = true;
             }
-
-        }
+        
 
     }
+
+	
+	public void toggleColor()
+	{
+		addForceByTime boostArray = FindObjectOfType(typeof(addForceByTime)) as addForceByTime;
+		Button buttonButton = GetComponent<Button>();
+
+		ColorBlock cb = buttonButton.colors;
+
+
+		if (boostArray.isBoost[ButtonID] == true)
+		{
+			cb.normalColor  = Color.green;
+			
+			
+		}
+		else
+		{
+			cb.normalColor  = Color.white;
+		}
+
+
+		buttonButton.colors = cb;
+		
+	}
+
+	public void highlight(){
+		Button buttonButton = GetComponent<Button>();
+		
+		ColorBlock cb = buttonButton.colors;
+		cb.normalColor  = Color.yellow;
+		buttonButton.colors = cb;
+	}
+
+	public void unHighlight(){
+		this.toggleColor();
+		
+	}
 
 
 

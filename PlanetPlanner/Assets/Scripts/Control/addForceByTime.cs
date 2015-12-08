@@ -4,12 +4,12 @@ using System.Collections;
 
 public class addForceByTime : MonoBehaviour {
 	
-	public bool[] isBoost = new bool[60];
+	public bool[] isBoost = new bool[30];
 	private spaceship s;
     private levelClock levelClock;
     private GameObject BaseGameObject;
     private SpriteRenderer SR;
-
+	private spawnBoostControl item;
 
 
 
@@ -27,13 +27,18 @@ public class addForceByTime : MonoBehaviour {
 		s = GetComponent<spaceship>();
         levelClock = GameObject.Find("gameBaseScripts").GetComponent<levelClock>();
         SR = GetComponent<SpriteRenderer>();
-      
+
+		 item = FindObjectOfType(typeof(spawnBoostControl)) as spawnBoostControl;
       
     }
 
 	void FixedUpdate(){
 		if (levelClock.timer < levelClock.timeMax && levelClock.started) { //if timer is started and less than max time
             levelClock.timer += Time.deltaTime;
+
+
+			int roundedA = (int) (levelClock.timer);
+			item.highlightButton(roundedA);
 
 
 			if( this.boostOn() == true){ //if array at point in time is true
