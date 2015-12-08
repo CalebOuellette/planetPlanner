@@ -3,9 +3,7 @@ using System.Collections;
 
 public class spaceship : GravityBody {
 
-	private Transform body;
-  
-
+	private Transform bodyT;
 	public int thrust = 10;
 
     //GetSprite
@@ -29,7 +27,7 @@ public class spaceship : GravityBody {
 
         //Setup values
         SR = GetComponent<SpriteRenderer>();
-        body = GetComponent<Transform>();
+        bodyT = GetComponent<Transform>();
 
 
         //Apply Values
@@ -45,13 +43,13 @@ public class spaceship : GravityBody {
 
 	public void addFowardForce(){
 
-		this.rb.AddForce(body.right * thrust); //Added Force
+		this.rb.AddForce(bodyT.right * thrust); //Added Force
     }
 
 	
 	public void AddFowardForce(float InputThrust){
 
-        this.rb.AddForce(body.right * InputThrust); //Added Force
+        this.rb.AddForce(bodyT.right * InputThrust); //Added Force
 	}
 
 
