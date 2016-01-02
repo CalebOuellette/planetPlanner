@@ -25,7 +25,7 @@ public class addForceByTime : MonoBehaviour {
 
 	void Start(){
 		s = GetComponent<spaceship>();
-        levelClock = GameObject.Find("gameBaseScripts").GetComponent<levelClock>();
+        levelClock = GameObject.Find("gameBase").GetComponent<levelClock>();
         SR = GetComponent<SpriteRenderer>();
 
 		 item = FindObjectOfType(typeof(spawnBoostControl)) as spawnBoostControl;

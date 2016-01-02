@@ -7,7 +7,7 @@ public class ClickAndDrag : MonoBehaviour
 
     void Start()
     {
-        levelClock = GameObject.Find("gameBaseScripts").GetComponent<levelClock>();
+        levelClock = GameObject.Find("gameBase").GetComponent<levelClock>();
     }
 
 
