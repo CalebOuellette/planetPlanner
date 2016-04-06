@@ -11,6 +11,7 @@ public class addForceByTime : MonoBehaviour {
     private SpriteRenderer SR;
 	private spawnBoostControl item;
 
+    private Animator boost;
 
 
     public bool boostOn(){
@@ -27,8 +28,8 @@ public class addForceByTime : MonoBehaviour {
 		s = GetComponent<spaceship>();
         levelClock = GameObject.Find("gameBase").GetComponent<levelClock>();
         SR = GetComponent<SpriteRenderer>();
-
-		 item = FindObjectOfType(typeof(spawnBoostControl)) as spawnBoostControl;
+        boost = GetComponent<Animator>();
+        item = FindObjectOfType(typeof(spawnBoostControl)) as spawnBoostControl;
       
     }
 
@@ -43,11 +44,13 @@ public class addForceByTime : MonoBehaviour {
 
 			if( this.boostOn() == true){ //if array at point in time is true
 				s.addFowardForce();
-                SR.sprite = s.ShipBoostsprite;
+                boost.enabled = true;
+                //SR.sprite = s.ShipBoostsprite;
             }
             else
             {
-                SR.sprite = s.Shipsprite;
+              //  SR.sprite = s.Shipsprite;
+                boost.enabled = false;
             }
 
 		}

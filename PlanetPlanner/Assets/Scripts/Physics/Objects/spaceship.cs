@@ -13,7 +13,7 @@ public class spaceship : GravityBody {
     public Sprite Shipsprite;
     [HideInInspector] // Hides var below
     public Sprite ShipBoostsprite;
-
+    
     private SpriteRenderer SR;
     
 
@@ -24,7 +24,7 @@ public class spaceship : GravityBody {
         //Get Config Values
         Shipsprite = Resources.Load<Sprite>((ShipSpritePath));
         ShipBoostsprite = Resources.Load<Sprite>((ShipSpritePath + "_boost"));
-
+        
         //Setup values
         SR = GetComponent<SpriteRenderer>();
         bodyT = GetComponent<Transform>();

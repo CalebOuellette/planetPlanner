@@ -12,6 +12,7 @@ GameObject:
   - 92: {fileID: 9257608}
   - 124: {fileID: 12494002}
   - 81: {fileID: 8153552}
+  - 114: {fileID: 11489268}
   m_Layer: 0
   m_Name: Defualt Camera
   m_TagString: MainCamera
@@ -26,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 103724}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -35.5, y: 12.1999998, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -79,6 +80,18 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 103724}
   m_Enabled: 1
+--- !u!114 &11489268
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 103724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9fb8a6b520e65841b0ea5a586901b53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orthoZoomSpeed: .5
 --- !u!124 &12494002
 Behaviour:
   m_ObjectHideFlags: 1
